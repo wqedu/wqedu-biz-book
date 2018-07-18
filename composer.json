@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Biz\\Course\\": "src/Book/"
+            "Biz\\Book\\": "src/Book/"
         }
     },
 
