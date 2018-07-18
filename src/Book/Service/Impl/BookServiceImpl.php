@@ -21,7 +21,7 @@ class BookServiceImpl extends BaseService implements BookService
             $book  = $this->getBookDao()->get($id);
 
             if(empty($book))
-                throw new \Exception('Book Resource Not Found', 30304);
+                throw new \Exception('Book Resource Not Found', 20304);
 
             return array(
                 'code'  =>  0,
@@ -36,7 +36,7 @@ class BookServiceImpl extends BaseService implements BookService
     {
         try{
             if (!ArrayToolkit::requireds($book, array('title')))
-                throw new \Exception('Missing Necessary Fields', 30301);
+                throw new \Exception('Missing Necessary Fields', 20301);
 
             $book                = $this->_filterBookFields($book);
             $book['status']      = 'published';
@@ -62,7 +62,7 @@ class BookServiceImpl extends BaseService implements BookService
         try{
             $book   = $this->getBookDao()->get($id);
             if(empty($book))
-                throw new \Exception('Book Resource Not Found', 30304);
+                throw new \Exception('Book Resource Not Found', 20304);
 
             $fields = $this->_filterBookFields($fields);
             $fields        = KeypointsSerialize::serialize($fields);
@@ -83,7 +83,7 @@ class BookServiceImpl extends BaseService implements BookService
         try {
             $book   = $this->getBookDao()->get($id);
             if(empty($book))
-                throw new \Exception('Book Resource Not Found', 30304);
+                throw new \Exception('Book Resource Not Found', 20304);
 
             $this->getLessonDao()->deleteLessonsByBookId($id);
             $this->getChapterDao()->deleteChaptersByBookId($id);
